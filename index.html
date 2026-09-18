@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chinki ❤️ Ritik</title>
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(
+        135deg,
+        #ff758c,
+        #ff7eb3,
+        #c471ed
+    );
+    color:white;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page{
+    display:none;
+
+    min-height:100vh;
+
+    padding:30px 20px;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+}
+
+/* First page when website opens */
+
+#page1{
+    display:flex;
+}
+
+/* When another page is selected,
+   hide the first page */
+
+body:has(.page:target) #page1{
+    display:none;
+}
+
+/* Show selected page */
+
+.page:target{
+    display:flex;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+    width:100%;
+    max-width:650px;
+
+    padding:35px 25px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.25);
+
+    border:
+        1px solid rgba(255,255,255,0.25);
+
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+h1{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+h2{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+
+    display:inline-block;
+
+    padding:14px 25px;
+
+    margin:8px;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:#e91e63;
+
+    text-decoration:none;
+
+    transition:0.3s;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.2);
+
+}
+
+.btn:hover{
+    transform:scale(1.08);
+}
+
+.btn:active{
+    transform:scale(0.96);
+}
+
+
+/* =========================
+   HEART
+========================= */
+
+.heart{
+    position:fixed;
+
+    bottom:-30px;
+
+    font-size:25px;
+
+    animation:
+        floatHeart 6s linear forwards;
+
+    pointer-events:none;
+
+    z-index:100;
+}
+
+@keyframes floatHeart{
+
+    0%{
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(-110vh)
+            scale(1.7);
+
+        opacity:0;
+    }
+
+}
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope{
+
+    font-size:80px;
+
+    margin:20px;
+
+}
+
+
+/* =========================
+   APOLOGY
+========================= */
+
+.apology-box{
+
+    margin-top:20px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,0.16);
+
+    line-height:1.8;
+
+}
+
+
+/* =========================
+   REASONS
+========================= */
+
+.reason-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.reason-card{
+
+    padding:22px 15px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,0.16);
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.reason-card:hover{
+
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255,255,255,0.25);
+
+}
+
+.reason-text{
+
+    display:none;
+
+    margin-top:12px;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+details{
+    margin:8px;
+}
+
+summary{
+    list-style:none;
+}
+
+summary::-webkit-details-marker{
+    display:none;
+}
+
+
+/* =========================
+   SECRET MESSAGE
+========================= */
+
+.secret{
+
+    padding:25px;
+
+    margin-top:20px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    line-height:1.8;
+
+}
+
+
+/* =========================
+   WHY BOX
+========================= */
+
+.why-box{
+
+    margin-top:20px;
+
+    min-height:70px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    line-height:1.6;
+
+}
+
+
+/* =========================
+   MYSTERY BOXES
+========================= */
+
+.mystery-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.mystery{
+
+    min-height:120px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.mystery:hover{
+
+    transform:
+        scale(1.04);
+
+}
+
+.box-message{
+
+    margin-top:10px;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+audio{
+
+    width:100%;
+
+    margin-top:25px;
+
+}
+
+
+/* =========================
+   OPEN WHEN
+========================= */
+
+.when-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.when-card{
+
+    padding:25px 15px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.when-card:hover{
+
+    transform:
+        translateY(-5px);
+
+}
+
+
+/* =========================
+   ROSES
+========================= */
+
+.rose-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.rose-card{
+
+    padding:25px 15px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    cursor:pointer;
+
+    font-size:40px;
+
+    transition:0.3s;
+
+}
+
+.rose-card:hover{
+
+    transform:
+        scale(1.08);
+
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-name{
+
+    font-size:55px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+
+}
+
+.final-heart{
+
+    font-size:70px;
+
+    animation:
+        pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.2);
+    }
+
+}
+
+
+/* =========================
+   SURPRISE
+========================= */
+
+.surprise-heart{
+
+    font-size:90px;
+
+    animation:
+        pulse 1.5s infinite;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    h1{
+        font-size:34px;
+    }
+
+    h2{
+        font-size:25px;
+    }
+
+    p{
+        font-size:16px;
+    }
+
+    .card{
+        padding:30px 18px;
+    }
+
+    .reason-grid,
+    .mystery-grid,
+    .when-grid,
+    .rose-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+
+/* Very small phones */
+
+@media(max-width:380px){
+
+    .reason-grid,
+    .mystery-grid,
+    .when-grid,
+    .rose-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PAGE 1
+===================================================== -->
+
+<section class="page" id="page1">
+
+<div class="card">
+
+<div style="font-size:70px;">
+❤️
+</div>
+
+<h1>
+Hey Chinki ❤️
+</h1>
+
+<p>
+
+Ritik made something special for you...
+
+<br><br>
+
+Not just a website,
+but a little journey
+full of feelings. 🥺❤️
+
+</p>
+
+<a href="#page2" class="btn">
+Start the Journey 💕
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 2
+===================================================== -->
+
+<section class="page" id="page2">
+
+<div class="card">
+
+<h2>
+Chinki... I'm Sorry 🥺❤️
+</h2>
+
+<div class="envelope">
+💌
+</div>
+
+<p>
+Before anything else,
+Ritik wants to say something.
+</p>
+
+<div class="apology-box">
+
+Dear Chinki,
+
+<br><br>
+
+I know you're angry with me,
+and I know that just saying
+"Sorry" cannot instantly fix everything.
+
+<br><br>
+
+I don't want to make excuses
+or pretend that nothing happened.
+
+<br><br>
+
+If my words or actions hurt you,
+I'm genuinely sorry. 🥺
+
+<br><br>
+
+You mean a lot to me,
+and I never wanted to make you feel bad.
+
+<br><br>
+
+I'm really, really sorry, Chinki. ❤️
+
+<br><br>
+
+<b>
+— Ritik ❤️
+</b>
+
+</div>
+
+<br>
+
+<a href="#page3" class="btn">
+Continue ❤️
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 3
+===================================================== -->
+
+<section class="page" id="page3">
+
+<div class="card">
+
+<h2>
+One Question, Chinki... 🥺
+</h2>
+
+<p>
+
+After reading Ritik's apology...
+
+<br><br>
+
+Will you forgive me? ❤️
+
+</p>
+
+<br>
+
+<a href="#page4" class="btn">
+YES ❤️
+</a>
+
+<a href="#page4" class="btn">
+Of Course ❤️
+</a>
+
+<p style="margin-top:20px;">
+
+Ritik really hopes you do. 🥺
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 4
+===================================================== -->
+
+<section class="page" id="page4">
+
+<div class="card">
+
+<h2>
+Our Little Song 🎵❤️
+</h2>
+
+<p>
+
+Maybe this song can say
+some things that words cannot.
+
+</p>
+
+<audio controls>
+
+<source src="song.mp3" type="audio/mpeg">
+
+Your browser does not support
+the audio element.
+
+</audio>
+
+<p style="font-size:14px;margin-top:15px;">
+
+Music file name should be exactly:
+
+<b>
+song.mp3
+</b>
+
+</p>
+
+<a href="#page5" class="btn">
+Continue 💕
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 5
+===================================================== -->
+
+<section class="page" id="page5">
+
+<div class="card">
+
+<h2>
+Chinki... ❤️
+</h2>
+
+<p>
+
+Ritik has one important
+question for you...
+
+</p>
+
+<h2>
+
+Do you love me? 🥺❤️
+
+</h2>
+
+<br>
+
+<a href="#page6" class="btn">
+YES ❤️
+</a>
+
+<a href="#page6" class="btn">
+YES, Obviously 😏❤️
+</a>
+
+<p style="margin-top:20px;">
+
+I already know the answer. 🥺
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 6
+===================================================== -->
+
+<section class="page" id="page6">
+
+<div class="card">
+
+<h2>
+Reasons I Like You ❤️
+</h2>
+
+<p>
+Click each one to discover
+what Ritik thinks...
+</p>
+
+<div class="reason-grid">
+
+
+<div class="reason-card">
+
+<div style="font-size:30px;">
+😊
+</div>
+
+<b>
+Your Smile
+</b>
+
+<details>
+
+<summary style="margin-top:10px;">
+Tap to read ❤️
+</summary>
+
+<div class="reason-text"
+style="display:block;">
+
+Your smile has a way
+of making everything feel better.
+
+</div>
+
+</details>
+
+</div>
+
+
+
+<div class="reason-card">
+
+<div style="font-size:30px;">
+✨
+</div>
+
+<b>
+Your Vibe
+</b>
+
+<details>
+
+<summary style="margin-top:10px;">
+Tap to read ❤️
+</summary>
+
+<div class="reason-text"
+style="display:block;">
+
+There is something about
+your vibe that I genuinely love.
+
+</div>
+
+</details>
+
+</div>
+
+
+
+<div class="reason-card">
+
+<div style="font-size:30px;">
+😂
+</div>
+
+<b>
+Your Funny Side
+</b>
+
+<details>
+
+<summary style="margin-top:10px;">
+Tap to read ❤️
+</summary>
+
+<div class="reason-text"
+style="display:block;">
+
+You can turn an ordinary moment
+into something memorable.
+
+</div>
+
+</details>
+
+</div>
+
+
+
+<div class="reason-card">
+
+<div style="font-size:30px;">
+🫶
+</div>
+
+<b>
+Your Care
+</b>
+
+<details>
+
+<summary style="margin-top:10px;">
+Tap to read ❤️
+</summary>
+
+<div class="reason-text"
+style="display:block;">
+
+The little ways you care
+mean more than you probably realize.
+
+</div>
+
+</details>
+
+</div>
+
+
+
+<div class="reason-card">
+
+<div style="font-size:30px;">
+💗
+</div>
+
+<b>
+Your Presence
+</b>
+
+<details>
+
+<summary style="margin-top:10px;">
+Tap to read ❤️
+</summary>
+
+<div class="reason-text"
+style="display:block;">
+
+Just having you around
+makes normal moments feel special.
+
+</div>
+
+</details>
+
+</div>
+
+
+
+<div class="reason-card">
+
+<div style="font-size:30px;">
+🌸
+</div>
+
+<b>
+Just You
+</b>
+
+<details>
+
+<summary style="margin-top:10px;">
+Tap to read ❤️
+</summary>
+
+<div class="reason-text"
+style="display:block;">
+
+Honestly, I don't need a reason.
+I just like you for being you.
+
+</div>
+
+</details>
+
+</div>
+
+
+</div>
+
+<br>
+
+<a href="#page7" class="btn">
+Continue ❤️
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 7
+===================================================== -->
+
+<section class="page" id="page7">
+
+<div class="card">
+
+<h2>
+A Secret Message 💌
+</h2>
+
+<div class="envelope">
+💌
+</div>
+
+<p>
+There is something hidden inside...
+</p>
+
+<details>
+
+<summary class="btn">
+Open It ❤️
+</summary>
+
+<div class="secret">
+
+Chinki, sometimes Ritik doesn't know
+how to explain what you mean to him.
+
+<br><br>
+
+But one thing he knows is that
+your presence makes his world
+a little more beautiful. ❤️
+
+</div>
+
+</details>
+
+<br>
+
+<a href="#page8" class="btn">
+Continue 🌸
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 8
+===================================================== -->
+
+<section class="page" id="page8">
+
+<div class="card">
+
+<h2>
+Why You? ❤️
+</h2>
+
+<p>
+Maybe these answers explain it a little...
+</p>
+
+
+<details>
+
+<summary class="btn">
+Why your smile? 😊
+</summary>
+
+<div class="why-box">
+
+Because your smile can change
+the mood of an entire moment. 😊❤️
+
+</div>
+
+</details>
+
+
+
+<details>
+
+<summary class="btn">
+Why your personality? ✨
+</summary>
+
+<div class="why-box">
+
+Because your personality is one of
+the things that makes you different
+and special. ✨
+
+</div>
+
+</details>
+
+
+
+<details>
+
+<summary class="btn">
+Why you? ❤️
+</summary>
+
+<div class="why-box">
+
+Because you're you.
+
+And somehow,
+that's more than enough for Ritik. ❤️
+
+</div>
+
+</details>
+
+<br>
+
+<a href="#page9" class="btn">
+Continue 💕
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 9
+===================================================== -->
+
+<section class="page" id="page9">
+
+<div class="card">
+
+<h2>
+Mystery Boxes 🎁
+</h2>
+
+<p>
+
+Choose a box and discover
+a little message from Ritik.
+
+</p>
+
+<div class="mystery-grid">
+
+
+<details class="mystery">
+
+<summary>
+
+🎁
+<br>
+<b>Box 1</b>
+
+</summary>
+
+<div class="box-message">
+
+You make ordinary days
+feel special. ❤️
+
+</div>
+
+</details>
+
+
+
+<details class="mystery">
+
+<summary>
+
+🎁
+<br>
+<b>Box 2</b>
+
+</summary>
+
+<div class="box-message">
+
+Your smile is one of
+my favourite things. 🥺
+
+</div>
+
+</details>
+
+
+
+<details class="mystery">
+
+<summary>
+
+🎁
+<br>
+<b>Box 3</b>
+
+</summary>
+
+<div class="box-message">
+
+If I could choose one person
+to talk to every day,
+I would choose you. 💗
+
+</div>
+
+</details>
+
+
+
+<details class="mystery">
+
+<summary>
+
+🎁
+<br>
+<b>Box 4</b>
+
+</summary>
+
+<div class="box-message">
+
+You have no idea how much
+your little things mean to me. 🫶
+
+</div>
+
+</details>
+
+
+
+<details class="mystery">
+
+<summary>
+
+🎁
+<br>
+<b>Box 5</b>
+
+</summary>
+
+<div class="box-message">
+
+Whenever I see you smile,
+my mood automatically gets better. 😊❤️
+
+</div>
+
+</details>
+
+
+
+<details class="mystery">
+
+<summary>
+
+🎁
+<br>
+<b>Box 6</b>
+
+</summary>
+
+<div class="box-message">
+
+One simple truth:
+
+Ritik really likes Chinki. ❤️
+
+</div>
+
+</details>
+
+
+</div>
+
+<br>
+
+<a href="#page10" class="btn">
+Continue 🎵
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 10
+===================================================== -->
+
+<section class="page" id="page10">
+
+<div class="card">
+
+<h2>
+Open When... 💌
+</h2>
+
+<p>
+
+Choose the moment
+that feels like you right now.
+
+</p>
+
+<div class="when-grid">
+
+
+<details class="when-card">
+
+<summary>
+
+😔
+<br>
+<b>You're Sad</b>
+
+</summary>
+
+<div class="why-box">
+
+Hey Chinki,
+don't stay sad.
+
+Take a deep breath,
+smile a little,
+and remember that
+better moments are coming. ❤️
+
+</div>
+
+</details>
+
+
+
+<details class="when-card">
+
+<summary>
+
+🥺
+<br>
+<b>You Miss Me</b>
+
+</summary>
+
+<div class="why-box">
+
+If you miss me,
+just remember that somewhere
+Ritik is probably thinking
+about you too. 🥺❤️
+
+</div>
+
+</details>
+
+
+
+<details class="when-card">
+
+<summary>
+
+😊
+<br>
+<b>You're Happy</b>
+
+</summary>
+
+<div class="why-box">
+
+If you're happy,
+keep that smile going!
+
+Your happiness is genuinely
+beautiful to see. 😊❤️
+
+</div>
+
+</details>
+
+
+
+<details class="when-card">
+
+<summary>
+
+😤
+<br>
+<b>You're Angry</b>
+
+</summary>
+
+<div class="why-box">
+
+If you're angry,
+take your time.
+
+When you're ready,
+Ritik would rather talk things
+out than let you stay upset. 🥺❤️
+
+</div>
+
+</details>
+
+
+</div>
+
+<br>
+
+<a href="#page11" class="btn">
+Continue 🌹
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 11
+===================================================== -->
+
+<section class="page" id="page11">
+
+<div class="card">
+
+<h2>
+Pick a Rose 🌹
+</h2>
+
+<p>
+Each rose has a little message.
+</p>
+
+<div class="rose-grid">
+
+
+<details class="rose-card">
+
+<summary>
+🌹
+</summary>
+
+<div class="rose-message">
+
+A rose for your beautiful smile. ❤️
+
+</div>
+
+</details>
+
+
+
+<details class="rose-card">
+
+<summary>
+🌹
+</summary>
+
+<div class="rose-message">
+
+A rose for all the happiness you bring. 🌸
+
+</div>
+
+</details>
+
+
+
+<details class="rose-card">
+
+<summary>
+🌹
+</summary>
+
+<div class="rose-message">
+
+A rose because you are
+genuinely special to me. 🥺
+
+</div>
+
+</details>
+
+
+
+<details class="rose-card">
+
+<summary>
+🌹
+</summary>
+
+<div class="rose-message">
+
+A rose for Chinki,
+from Ritik. ❤️
+
+</div>
+
+</details>
+
+
+</div>
+
+<br>
+
+<a href="#page12" class="btn">
+Continue 💌
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 12
+===================================================== -->
+
+<section class="page" id="page12">
+
+<div class="card">
+
+<h2>
+A Secret Letter 💌
+</h2>
+
+<div class="envelope">
+💌
+</div>
+
+<details>
+
+<summary class="btn">
+Open Letter ❤️
+</summary>
+
+<div class="secret">
+
+Dear Chinki,
+
+<br><br>
+
+I don't know if words can ever
+properly explain how special
+you are to me.
+
+<br><br>
+
+You have become one of those people
+whose presence can make an ordinary
+day feel different.
+
+<br><br>
+
+I hope you always smile,
+keep being yourself,
+and never forget that someone
+genuinely cares about you.
+
+<br><br>
+
+With lots of love,
+
+<br><br>
+
+<b>
+Ritik ❤️
+</b>
+
+</div>
+
+</details>
+
+<br>
+
+<a href="#page13" class="btn">
+One More Thing... 🌸
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 13
+===================================================== -->
+
+<section class="page" id="page13">
+
+<div class="card">
+
+<div class="final-heart">
+❤️
+</div>
+
+<div class="final-name">
+Chinki
+</div>
+
+<p>
+From Ritik ❤️
+</p>
+
+<h2>
+
+You are a beautiful
+part of my story.
+
+</h2>
+
+<p>
+Stay smiling. ❤️
+</p>
+
+<a href="#surprise" class="btn">
+One More Surprise 🌸
+</a>
+
+<br>
+
+<a href="#page1" class="btn">
+Replay 🔄
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FINAL SURPRISE
+===================================================== -->
+
+<section class="page" id="surprise">
+
+<div class="card">
+
+<div class="surprise-heart">
+❤️
+</div>
+
+<h1>
+Chinki ❤️
+</h1>
+
+<p style="font-size:22px;">
+
+Ritik has something to say...
+
+<br><br>
+
+"If I could keep one moment forever,
+I'd choose one where you're smiling."
+
+<br><br>
+
+❤️
+
+</p>
+
+<a href="#page1" class="btn">
+Replay 🔄
+</a>
+
+</div>
+
+</section>
+
+
+</body>
+</html>
